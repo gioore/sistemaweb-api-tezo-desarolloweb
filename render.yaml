@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: sistema-misiones-umg
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SERVER
+        value: svr-sql-ctezo.southcentralus.cloudapp.azure.com
+      - key: DB_DATABASE
+        value: db_WebDevUMG
+      - key: DB_PORT
+        value: "1433"
+      - key: DB_ENCRYPT
+        value: "true"
+      - key: DB_TRUST_SERVER_CERTIFICATE
+        value: "true"

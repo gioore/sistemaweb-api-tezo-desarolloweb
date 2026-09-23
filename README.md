@@ -53,3 +53,15 @@ Completa en `.env` las variables de SQL Server. El archivo `.env` está excluido
 - Cada misión se valida contra `Misiones`.
 - El detalle se inserta o actualiza en `EstudianteMisiones`.
 - Si una misión no existe, se devuelve `422` y se revierte toda la transacción.
+
+## Publicación
+
+El proyecto incluye `Dockerfile` y `render.yaml` para publicarlo como un servicio web completo en Render. El servicio necesita configurar en el panel de hosting los secretos `DB_USER` y `DB_PASSWORD`; no deben escribirse en GitHub.
+
+Después del despliegue, la aplicación quedará disponible en una URL similar a:
+
+```text
+https://sistema-misiones-umg.onrender.com
+```
+
+La ruta `/api/health` se usa como comprobación de disponibilidad y conexión con SQL Server.
